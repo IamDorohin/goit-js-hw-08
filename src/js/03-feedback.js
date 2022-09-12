@@ -16,14 +16,14 @@ const storageValues = {};
 onDataReturn();
 
 function onInputChange(evt) {
-    inputEmail = evt.target.value;
+    const inputEmail = evt.target.value;
 
     storageValues.email = inputEmail;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(storageValues));
 };
 
 function onTextareaChange(evt) {
-    textareaMessage = evt.target.value;
+    const textareaMessage = evt.target.value;
 
     storageValues.textarea = textareaMessage;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(storageValues));
