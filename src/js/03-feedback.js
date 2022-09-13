@@ -11,7 +11,10 @@ refs.input.addEventListener('input', Throttle(onInputChange, 500));
 refs.textarea.addEventListener('input', Throttle(onTextareaChange, 500));
 
 const STORAGE_KEY = "feedback-form-state";
-const storageValues = {};
+const storageValues = {
+    email: '',
+    textarea: '',
+};
 
 onDataReturn();
 
@@ -40,7 +43,8 @@ function onDataReturn() {
     const parsedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
     if(parsedData) {
-        refs.input.value = parsedData.email;
-        refs.textarea.value = parsedData.textarea;
-    } 
+         refs.input.value = parsedData.email;
+         refs.textarea.value = parsedData.textarea;
+    }
+    
 }
