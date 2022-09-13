@@ -15,6 +15,13 @@ const storageValues = {};
 
 onDataReturn();
 
+function onFormSubmit(evt) {
+    evt.preventDefault();
+
+    evt.currentTarget.reset();
+    localStorage.removeItem(STORAGE_KEY);
+};
+
 function onInputChange(evt) {
     const inputEmail = evt.target.value;
 
@@ -31,16 +38,9 @@ function onTextareaChange(evt) {
 
 function onDataReturn() {
     const parsedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
     if(parsedData) {
         refs.input.value = parsedData.email;
         refs.textarea.value = parsedData.textarea;
-    };
+    } 
 }
-
-function onFormSubmit(evt) {
-    evt.preventDefault();
-
-    evt.currentTarget.reset();
-    localStorage.removeItem(STORAGE_KEY);
-    console.log(storageValues);
-};
